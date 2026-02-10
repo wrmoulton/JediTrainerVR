@@ -16,6 +16,13 @@
 *.blend1
 *.blend1.meta
 
+# --- Baked lighting outputs (do not commit) ---
+Assets/**/LightingData.asset
+Assets/**/Lightmap-*.*
+Assets/**/ReflectionProbe-*.*
+Assets/**/*Lightmap*.*
+Assets/**/*_Light_*.*
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
