@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JediTrainingDroid : MonoBehaviour
+public class RandomFlyer : MonoBehaviour
 {
     [Header("Movement Area (Center + Size)")]
     public Vector3 areaCenter;
@@ -15,8 +15,14 @@ public class JediTrainingDroid : MonoBehaviour
     public Transform player;
     public float rotationSpeed = 5f;
 
+    [Header("Laser Shooting")]
+    public GameObject laserPrefab;   // assign in inspector
+    public Transform firePoint;      // where laser spawns
+    public float laserSpeed = 20f;
+
     private Vector3 targetPosition;
     private float waitTimer;
+    private bool hasShot = false;
 
     void Start()
     {
@@ -35,16 +41,25 @@ public class JediTrainingDroid : MonoBehaviour
 
         if (distance > stoppingDistance)
         {
-            // Move toward target position
+            // Moving
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 targetPosition,
                 moveSpeed * Time.deltaTime
             );
+
+            hasShot = false; // reset shooting for next stop
         }
         else
         {
-            // Wait before picking new position
+            // Stop + shoot once
+            if (!hasShot)
+            {
+                ShootLaser();
+                hasShot = true;
+            }
+
+            // Wait before moving again
             waitTimer += Time.deltaTime;
 
             if (waitTimer >= timeBetweenTargets)
@@ -78,7 +93,31 @@ public class JediTrainingDroid : MonoBehaviour
         );
     }
 
-    // Shows the flying area in Scene view
+    void ShootLaser()
+    {
+        if (laserPrefab == null || firePoint == null || player == null) return;
+
+        // Get exact direction to player
+        Vector3 direction = (player.position - firePoint.position).normalized;
+
+        // Spawn laser
+        GameObject laser = Instantiate(laserPrefab, firePoint.position, Quaternion.identity);
+
+        // Force correct size
+        laser.transform.localScale = Vector3.one;
+
+        // Make laser face travel direction
+        laser.transform.rotation = Quaternion.LookRotation(direction);
+
+        // Move toward player
+        Rigidbody rb = laser.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = direction * laserSpeed;
+        }
+    }
+
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
