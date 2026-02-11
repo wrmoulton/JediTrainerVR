@@ -3,46 +3,35 @@ using UnityEngine;
 public class GrabbableObject : MonoBehaviour
 {
     private Rigidbody rb;
-    private bool isGrabbed = false;
 
     void Start()
     {
+        // Get the Rigidbody component when the scene starts
         rb = GetComponent<Rigidbody>();
-        // Ensure the object starts in a fixed position
+        // Ensure it starts kinematic (static)
         if (rb != null)
         {
-            rb.isKinematic = true; // Makes object static initially
+            rb.isKinematic = true;
         }
     }
 
-    // This function should be called by your interaction system's "Grab" event
-    public void OnGrab()
+    // This method is called by your main interaction/grab script when the player grabs the object
+    public void GrabObject()
     {
-        if (!isGrabbed)
+        if (rb != null)
         {
-            isGrabbed = true;
-            if (rb != null)
-            {
-                rb.isKinematic = false; // Allow physics (gravity, etc.) when grabbed
-                // Optional: You might want to disable gravity if the grabbing mechanism handles the position
-                // rb.useGravity = false; 
-            }
-            // Add your specific grabbing logic here (e.g., parenting to a hand transform, using joints)
+            rb.isKinematic = false; // Disable kinematic mode, allowing physics to take over
+            // Optionally re-enable gravity if you want it to fall when released
+            rb.useGravity = true; 
         }
     }
 
-    // This function should be called by your interaction system's "Release" event
-    public void OnRelease()
+    // This method is called by your main interaction/grab script when the player releases the object
+    public void ReleaseObject()
     {
-        if (isGrabbed)
-        {
-            isGrabbed = false;
-            // When released, the object will continue with normal physics (e.g., fall with gravity)
-            if (rb != null)
-            {
-                rb.useGravity = true;
-            }
-            // Add your specific release logic here
-        }
+        // You might want to leave it as a non-kinematic object so it reacts to physics after being released.
+        // If you need it to snap back to being static/kinematic immediately upon release,
+        // you would add:
+        // rb.isKinematic = true;
     }
 }
