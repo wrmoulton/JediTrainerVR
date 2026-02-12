@@ -16,7 +16,7 @@ TagManager:
   - MovementBoundingBox
   - Laser
   - LightSaberHitBox
-  - UI2
+  - Enemy
   - 
   - 
   - 

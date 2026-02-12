@@ -9,7 +9,7 @@ public class FlyingChase : MonoBehaviour
     public float stopDistance = 2.0f;
 
     [Header("Height Lock")]
-    public float lockedY = 3f;           // world-space height (meters)
+    public float lockedY = 3.2f;           // world-space height (meters)
     public bool lockToInitialY = true;     // if true, uses spawn height automatically
 
     [Header("Rotation (Yaw Only)")]
