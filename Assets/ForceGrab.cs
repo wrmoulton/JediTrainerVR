@@ -15,6 +15,8 @@ public class ForceGrab : MonoBehaviour
             TryGrab();
         else
             HoldObject();
+
+        Debug.DrawRay(transform.position, transform.forward * 5f, Color.green, 0f, false);
     }
 
     void TryGrab()
@@ -76,4 +78,16 @@ public class ForceGrab : MonoBehaviour
         grabbedObject.drag = 0;
         grabbedObject = null;
     }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.forward * 2f);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, transform.up * 2f);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, transform.right * 2f);
+    }
 }
+
