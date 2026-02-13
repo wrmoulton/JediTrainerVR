@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 8152371729434211759}
   - component: {fileID: -7114468692199700076}
   m_Layer: 9
-  m_Name: id-9_seeker_droid (10)
+  m_Name: id-9_seeker_droid_ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
