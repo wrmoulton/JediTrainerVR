@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handPoint: {fileID: 565310082}
   head: {fileID: 1188666377}
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 559353335}
   radius: 5
   pushDistance: 5
   enemyLayer:
