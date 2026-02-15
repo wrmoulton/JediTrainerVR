@@ -20,6 +20,10 @@ public class RandomFlyer : MonoBehaviour
     public Transform firePoint;      // where laser spawns
     public float laserSpeed = 20f;
 
+    [Header("Audio")]
+    public AudioSource audioSource;   // drag droid AudioSource here
+    public AudioClip laserSound;      // drag your mp3 here
+
     private Vector3 targetPosition;
     private float waitTimer;
     private bool hasShot = false;
@@ -97,6 +101,13 @@ public class RandomFlyer : MonoBehaviour
     {
         if (laserPrefab == null || firePoint == null || player == null) return;
 
+        // Play laser sound
+        if (audioSource != null && laserSound != null)
+        {
+            audioSource.PlayOneShot(laserSound);
+            Debug.Log("playing laser sound");
+        }
+
         // Get exact direction to player
         Vector3 direction = (player.position - firePoint.position).normalized;
 
@@ -116,6 +127,7 @@ public class RandomFlyer : MonoBehaviour
             rb.velocity = direction * laserSpeed;
         }
     }
+
 
 
     void OnDrawGizmosSelected()

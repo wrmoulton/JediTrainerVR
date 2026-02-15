@@ -16,7 +16,7 @@ public class ForceGrab : MonoBehaviour
         else
             HoldObject();
 
-        Debug.DrawRay(transform.position, transform.forward * 5f, Color.green, 0f, false);
+        // Debug.DrawRay(transform.position, transform.forward * 5f, Color.green, 0f, false);
     }
 
     void TryGrab()

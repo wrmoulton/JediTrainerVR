@@ -4,34 +4,65 @@ public class GrabbableObject : MonoBehaviour
 {
     private Rigidbody rb;
 
+    [Header("Optional Lightsaber Hitbox")]
+    public Rigidbody hitboxRigidbody;   // drag lightsaber hitbox here
+    public Collider hitboxCollider;     // optional, but recommended
+
     void Start()
     {
-        // Get the Rigidbody component when the scene starts
         rb = GetComponent<Rigidbody>();
-        // Ensure it starts kinematic (static)
+
+        // Object starts as normal physics object
         if (rb != null)
         {
-            rb.isKinematic = true;
+            rb.isKinematic = false;
+            rb.useGravity = false;
+        }
+
+        // Hitbox should ALWAYS be kinematic (for laser reflection)
+        if (hitboxRigidbody != null)
+        {
+            hitboxRigidbody.isKinematic = false;
+            hitboxRigidbody.useGravity = false;
         }
     }
 
-    // This method is called by your main interaction/grab script when the player grabs the object
+    // Called when grabbed
     public void GrabObject()
     {
         if (rb != null)
         {
-            rb.isKinematic = false; // Disable kinematic mode, allowing physics to take over
-            // Optionally re-enable gravity if you want it to fall when released
-            rb.useGravity = true; 
+            rb.isKinematic = true;   // follow hand
+            rb.useGravity = false;
         }
+
+        // Ensure lightsaber hitbox stays active and kinematic
+        if (hitboxRigidbody != null)
+        {
+            hitboxRigidbody.isKinematic = true;
+            hitboxRigidbody.useGravity = false;
+        }
+
+        if (hitboxCollider != null)
+            hitboxCollider.enabled = true;
+        Debug.Log("Object Grabbed!");
     }
 
-    // This method is called by your main interaction/grab script when the player releases the object
+    // Called when released
     public void ReleaseObject()
     {
-        // You might want to leave it as a non-kinematic object so it reacts to physics after being released.
-        // If you need it to snap back to being static/kinematic immediately upon release,
-        // you would add:
-        // rb.isKinematic = true;
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+        }
+
+        // Hitbox stays kinematic even when released
+        if (hitboxRigidbody != null)
+        {
+            hitboxRigidbody.isKinematic = false;
+            hitboxRigidbody.useGravity = false;
+        }
+        Debug.Log("Object Released!");
     }
 }
