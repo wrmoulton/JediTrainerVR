@@ -27,13 +27,14 @@ public class LaserProjectile : MonoBehaviour
         {
             Debug.Log("Hit the lightsaber hitbox");
 
+            // ADD SCORE HERE
+            if (ScoreManager.Instance != null)
+                ScoreManager.Instance.AddScore(10);
+
             if (reflectionCount < maxReflections)
             {
                 Reflect(collision);
                 reflectionCount++;
-
-                // prevent instant second hit
-                StartCoroutine(ReflectionCooldown());
             }
             else
             {
