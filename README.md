@@ -14,16 +14,17 @@ This project was developed in Unity as part of a team assignment.
 
 1. Clone the repository from:  
    https://github.com/wrmoulton/JediTrainerVR.git
+2. Go to **DroidLaserMode** branch
 
-2. Open **Unity Hub**
+3. Open **Unity Hub**
 
-3. Add the cloned project folder
+4. Add the cloned project folder
 
-4. Open the project using the recommended Unity version
+5. Open the project using the recommended Unity version
 
-5. Connect your VR headset (Meta Quest via Link or equivalent)
+6. Connect your VR headset (Meta Quest via Link or equivalent)
 
-6. Press **Play** in the Unity Editor or build the project to your headset
+7. Press **Play** in the Unity Editor or build the project to your headset
 
 ---
 
@@ -133,7 +134,7 @@ These issues are known and were not fully resolved within the project timeline.
 
 ## Team Contributions
 
-### My Contributions
+### My Contributions (William Moulton)
 - Implemented **Attack Droid Combat Mode**, including the core scripting logic that controls enemy spawning, movement, and behavior as droids actively advance toward the player
 - Implemented Force Powers:
   - Force Wave (3)
@@ -156,7 +157,7 @@ These issues are known and were not fully resolved within the project timeline.
   - Background music and audio integration
     
 
-### Partner Contributions
+### Partner Contributions (Dillon Sardarsingh)
 - Implemented **Training Droid Mode**
 - Implemented remaining Force powers:
   - Force Lightning
