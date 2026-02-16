@@ -48,8 +48,9 @@ The following Force powers are available in the game and all take up some force 
 2. 🧲 **Object Grabbing & Throwing** *(implemented but currently buggy)*  
 3. 🌊 **Force Wave** – Knocks enemies backward  
 4. 💚 **Force Heal** – Restores player health  
-5. 👁️ **Force Foresight** – See into the future (enemy prediction mechanic)  
-6. 🔥 **Call the Force from All Jedi**  
+5. 👁️ **Force Foresight** – See into the future (enemy prediction mechanic)
+   - Note about this is that its hard to see in the video, but a transparent droid is shown where the enemy will travel
+7. 🔥 **Call the Force from All Jedi**  
    - Grants **dual lightsabers**
    - Emits intense Force energy
    - Completely drains the Force meter
@@ -134,7 +135,8 @@ These issues are known and were not fully resolved within the project timeline.
 - Implemented Force Powers:
   - Force Wave (3)
   - Force Heal (4)
-  - Force Foresight by allowing the player to see what the enemy path will be(5) 
+  - Force Foresight by allowing the player to see what the enemy path will be(5)
+       - Note about this is that its hard to see in the video, but a transparent droid is shown where the enemy will travel
   - Call the Force from All Jedi (6)
 - Designed and implemented:
   - Health meter
@@ -169,7 +171,7 @@ These issues are known and were not fully resolved within the project timeline.
 
 A **2–4 minute demonstration video** is included with the submission and shows:
 
-Link: 
+Link: https://youtu.be/Cbn59VJKuLs
 
 - Gameplay from the player’s perspective
 - Lightsaber combat and Force abilities
