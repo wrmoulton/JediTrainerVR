@@ -1,5 +1,8 @@
 # Jedi Trainer VR
 
+## Teammates
+William Moulton and Dillon Sardarsingh
+
 ## Overview
 Jedi Trainer VR is a virtual reality lightsaber training simulator designed to help young Jedi develop combat and Force skills. The game features multiple combat modes, Force powers, visual and audio effects, and wave-based enemy encounters culminating in a challenging boss fight.
 
